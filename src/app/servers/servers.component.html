@@ -1,0 +1,39 @@
+
+<p appBasicHighLight>  Basic Highlight Attribute Directive  Example  </p>
+<p appBetterHighLight  [defaultColor] ="'blue'"  [highlightColor] ="'red'"  >  Better Highlight Attribute Directive  Example   </p>
+
+<div class = "btn-group" appDropdown>
+  <button type = "button" class = "btn btn-primary dropdown-toggle">
+    DropDownMenu <span class = "caret"></span>
+  </button>
+  <ul class = "dropdown-menu">
+    <li> 1 </li>
+    <li> 2 </li>
+  </ul>
+
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">User Name </span>
+  </div>
+  <input type="text" class="form-control"  [(ngModel)] = "userName"   (input) ="onUserNameChange($event)">
+  <button type="button" class="btn btn-dark"  [disabled] = "!allowResetUserName"  (click) = "onResetUserName($event)">Reset</button>
+  
+</div>
+
+
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Server Name</span>
+  </div>
+  <input type="text" class="form-control"  (input) = "onServerChange($event)" >
+  <button type="button" class="btn btn-primary" 
+[disabled] = "!allowAddServer"   (click) = "onCreateServer($event)" >Add Server </button> 
+</div>
+<p *ngIf="serverCreated; else noServer"> Create server :  {{serverName }} </p>
+<ng-template #noServer>No server is input </ng-template>
+
+<app-server *ngFor = "let server of servers" ></app-server>
+
+  

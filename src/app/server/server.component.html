@@ -1,0 +1,16 @@
+
+<h3 [ngStyle]= "{backgroundColor : getColor()}" 
+    [ngClass] = "{online : serverStatus === 'online' }">
+   {{ 'Server '}}  with ID {{ serverID }} is {{ serverStatus }} - {{  getStatusCode () }}
+</h3>
+
+<div> 
+    <button type="button" class="btn btn-info" (click) = "onServerDetailClick($event)"   >More Detail</button>
+    <div  *ngIf = "showDetail"> 
+        This is the more inforamtion of the server 
+        <span> No of click </span>
+        <div *ngFor = "let click of clicks "  [ngStyle] = "{backgroundColor : getLogColor(click)}"
+             [ngClass] = "{online : click > '4_onDetailClick' }" > {{click}} </div>
+    </div>
+
+</div>
